@@ -24,8 +24,6 @@ public class Switch_예제_1 {
                 break;
             default:
                 System.out.println("0");
-
-
         }
     }
 }

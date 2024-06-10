@@ -5,13 +5,13 @@ public class Test_1_2 {
     // 1 ~ 100까지의 수 중에서 매개변수로 받은 수의
     // 배수를 출력하는 메소드를 만들고 호출해보세요.
     public static void main(String[] args) {
-        test(4);
+        test(10);
     }
 
     public static void test(int a){
         // 1 ~ 100은 이미 정해져있음 (?)
         int sum = 0;
-        // sum에 매개 변수에 지정된 정수값을 계속 더해감.
+        // sum 매개 변수에 지정된 정수값을 계속 더해감.
         for(int i = 0 ; i < 100 ; i++){
             if(i % a == 0){
                 sum += a;
