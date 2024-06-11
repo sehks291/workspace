@@ -1,4 +1,4 @@
-package class_basic.calc2;
+package class_basic.calc;
 
 import java.util.Scanner;
 

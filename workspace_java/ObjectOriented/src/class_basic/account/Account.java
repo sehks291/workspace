@@ -1,4 +1,4 @@
-package class_basic;
+package class_basic.account;
 
 // 좋은 클래스의 여건
 // 멤버 변수는 반드시 초기값을 설정해야함.

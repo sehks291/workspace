@@ -1,4 +1,4 @@
-package class_basic.calc2;
+package class_basic.calc;
 
 public class Calculator {
     private int num1;

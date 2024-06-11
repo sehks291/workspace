@@ -1,4 +1,4 @@
-package class_basic;
+package class_basic.account;
 
 public class AccountTest {
     public static void main(String[] args) {
