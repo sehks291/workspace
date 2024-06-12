@@ -45,6 +45,7 @@ public class StuManage {
         System.out.println("요청하신 학생의 정보입니다.");
         // 입력한 학생 중 필요한 학생의 정보만 출력해야함. 비교?
 
+
     }
 
     public void printAll(){

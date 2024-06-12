@@ -61,15 +61,15 @@ public class StudentTest {
             }
         }
 
-        for(Student e : students){
-            if(e.getName().equals("박")){
-                e.setAge(10);
-                e.print();
-            }
-            else{
-
-            }
-        }
+//        for(Student e : students){
+//            if(e.getName().equals("박")){
+//                e.setAge(10);
+//                e.print();
+//            }
+//            else{
+//
+//            }
+//        }
 
     }
 }
