@@ -28,16 +28,16 @@ public class Animal_1 {
         Cow cow1 = new Cow();
         cowHouse[0] = cow1;
 
-        for(int i = 0 ; i < 3 ; i++){
-            dogHouse[i].bark(); // 강아지 하우스 찾아가서 강아지 짖게하기
-        }
-
-        for(int i = 0 ; i < 2 ; i++){
-            catHouse[i].bark();
-        }
-
-        for(int i = 0 ; i < 1 ; i++){
-            cowHouse[i].bark();
-        }
+//        for(int i = 0 ; i < 3 ; i++){
+//            dogHouse[i].bark(); // 강아지 하우스 찾아가서 강아지 짖게하기
+//        }
+//
+//        for(int i = 0 ; i < 2 ; i++){
+//            catHouse[i].bark();
+//        }
+//
+//        for(int i = 0 ; i < 1 ; i++){
+//            cowHouse[i].bark();
+//        }
     }
 }
