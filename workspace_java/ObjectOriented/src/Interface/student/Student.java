@@ -13,6 +13,8 @@ public class Student {
         this.engScore = engScore;
     }
 
+
+
     public int getEngScore() {
         return engScore;
     }
@@ -44,4 +46,6 @@ public class Student {
     public void setName(String name) {
         this.name = name;
     }
+
+
 }
