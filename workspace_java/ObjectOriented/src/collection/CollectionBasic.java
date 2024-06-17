@@ -13,8 +13,6 @@ public class CollectionBasic {
     프레임워크가 있다 - 유용한 코드를 이용하여 불러서 씀. (빠름)
 
 
-
-
     제공되는 인터페이스
     ( 자료 구조에 따라 데이터의 저장 형태가 달라지기 때문에 4가지 방법을 제공)
     List, Set, Queue, Map
