@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    <h1>학생 성적 입력 프로그램</h1>
+    <input type="text" name="name" th:value="${scoreVO.getName}"> 학생의 정보입니다. <br>
+
+    이름 : <input type="text" name="korScore" th:value="${scoreVO.getName}"><br>
+    학년 : <input type="text" name="korScore" th:value="${scoreVO.getAge}"><br>
+    연락처 : <input type="text" name="korScore" th:value="${scoreVO.getTell}"><br>
+    <input type="text" name="korScore" th:value="${scoreVO.getTell2}">
+    성별 : <input type="text" name="korScore" th:value="${scoreVO.getGender}"><br>
+    국어 : <input type="text" name="korScore" th:value="${scoreVO.getKorScore}"><br>
+    영어 : <input type="text" name="EngScore" th:value="${scoreVO.getEngScore}"><br>
+    수학 : <input type="text" name="EngScore" th:value="${scoreVO.getMathScore}"><br>
+    평균 : 
+
+  </form>
+</body>
+</html>
