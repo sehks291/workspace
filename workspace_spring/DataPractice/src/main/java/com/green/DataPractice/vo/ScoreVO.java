@@ -1,11 +1,15 @@
 package com.green.DataPractice.vo;
 
+import java.util.Arrays;
+
+// VO 만드는 이유
+// html에서 넘어오는 정보를 전달받고, 전달하기 위한 공간
+// html의 name 속성값과 반드시 일치해야함.
 public class ScoreVO {
-    private String name; // 이름
-    private String age; // 학년
-    private String tell; // 연락처
-    private String tell2;
-    private String gender; // 성별
+    private String name;
+    private int year;
+    private String[] tel;
+    private String gender;
     private int korScore;
     private int engScore;
     private int mathScore;
@@ -18,28 +22,20 @@ public class ScoreVO {
         this.name = name;
     }
 
-    public String getAge() {
-        return age;
+    public int getYear() {
+        return year;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setYear(int year) {
+        this.year = year;
     }
 
-    public String getTell() {
-        return tell;
+    public String[] getTel() {
+        return tel;
     }
 
-    public void setTell(String tell) {
-        this.tell = tell;
-    }
-
-    public String getTell2() {
-        return tell2;
-    }
-
-    public void setTell2(String tell2) {
-        this.tell2 = tell2;
+    public void setTel(String[] tel) {
+        this.tel = tel;
     }
 
     public String getGender() {
@@ -72,5 +68,18 @@ public class ScoreVO {
 
     public void setMathScore(int mathScore) {
         this.mathScore = mathScore;
+    }
+
+    @Override
+    public String toString() {
+        return "ScoreVO{" +
+                "name='" + name + '\'' +
+                ", year=" + year +
+                ", tel=" + Arrays.toString(tel) +
+                ", gender='" + gender + '\'' +
+                ", korScore=" + korScore +
+                ", engScore=" + engScore +
+                ", mathScore=" + mathScore +
+                '}';
     }
 }
