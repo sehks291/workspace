@@ -10,6 +10,7 @@ package com.green.DB_Member.vo;
 // DB의 컬럼명을 기준으로 카멜케이스 방법으로 변수명을 작성한다.
 // 작성한 변수명을 토대로 HTML의 name값을 적는다.
 
+
 public class MemberVO {
     private int memNum;
     private String memName;

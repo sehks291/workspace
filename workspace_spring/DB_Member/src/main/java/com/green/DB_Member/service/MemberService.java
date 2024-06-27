@@ -9,6 +9,8 @@ public interface MemberService {
     // 회원 상세 정보 조회 / SELECT
     // 회원 정보 등록 / INSERT
     void insertMember(MemberVO memberVO);
+
+
     // 회원 삭제 기능 / DELETE
     // 회원 정보 수정 / UPDATE
 
