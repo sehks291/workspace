@@ -24,16 +24,30 @@
           <td colspan="5">조회된 학생이 없습니다.</td>
       </tr>
     </th:block>
-
     <th:bloack th:unless="${#lists.isEmpty(stuList)}">
       <tr th:each="stu : ${stuList}">
         <td>[[${stu.stuNum}]]</td>
-        <td>[[${stu.stuName}]]</td>
+        <td><a th:href="@{/student_detail(stuNum=${stu.stuNum})}">[[${stu.stuName}]]</a></td>
         <td>[[${stu.korScore}]]</td>
         <td>[[${stu.engScore}]]</td>
-        <td>[[${korScore + engScore}]]</td>
+        <td>[[${stu.korScore + stu.engScore}]]</td>
+        <!-- 변수를 해석하기 위해서는 타임리프 문법 사용 -->
+        
+        
+
       </tr>
     </th:bloack>
   </table>
+  <input type="button" value="학생등록하러가기" onclick="goReg()">
+  <!-- 학생 등록하러 가는 것 -->
+  <script>
+    function goReg(){
+      location.href = "/regForm";
+    }
+
+    function goStuDetail(){
+      location.href = "/student_detail";
+    }
+  </script>
 </body>
 </html>

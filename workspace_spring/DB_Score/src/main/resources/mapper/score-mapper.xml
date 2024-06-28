@@ -18,7 +18,7 @@
     </select>
 
     <!-- 학생 한명 추가 -->
-    <insert id="insert">
+    <insert id="insertStudent">
         INSERT INTO SCORE_INFO (
         STU_NUM
         , STU_NAME
@@ -33,6 +33,32 @@
         , #{intro}
         );
     </insert>
+
+    <!-- 학생 1명 조회 - 중복 불가인 PK 설정된 STU_NUM을 조건으로 조회 -->
+    <select id="getStuDetail" resultMap="score">
+        SELECT STU_NUM
+        , STU_NAME
+        , KOR_SCORE
+        , ENG_SCORE
+        , INTRO
+        FROM SCORE_INFO
+        WHERE STU_NUM = #{stuNum};
+    </select>
+
+    <delete id="deleteStudent">
+        DELETE FROM score_info
+        WHERE STU_NUM = #{stuNum};
+    </delete>
+
+    <update id="updateStudent">
+        UPDATE SCORE_INFO
+        SET
+            STU_NAME = #{stuName}
+        ,   KOR_SCORE = #{korScore}
+        ,   ENG_SCORE = #{engScore}
+        ,   INTRO = #{intro}
+        WHERE STU_NUM = #{stuNum};
+    </update>
 </mapper>
 
 
