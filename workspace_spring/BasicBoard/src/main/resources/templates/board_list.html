@@ -33,7 +33,8 @@
     <tbody>
       <tr th:each="board : ${boardList}">
         <td>[[${board.boardNum}]]</td>
-        <td><a href="/board_detail">[[${board.title}]]</a></td>
+        <td><a th:href="@{/board_detail(boardNum=${board.boardNum})}">[[${board.title}]]</a></td>
+        <!-- 보드에 글번호 데이터 가져가면 다른 데이터 가져감. -->
         <td>[[${board.writer}]]</td>
         <td>[[${board.createDate}]]</td>
         <td>[[${board.readCnt}]]</td>

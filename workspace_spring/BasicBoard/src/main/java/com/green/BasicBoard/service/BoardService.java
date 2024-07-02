@@ -21,13 +21,17 @@ public interface BoardService {
 
     // 게시글 상세 조회
 
+    BoardVO getBoardDetail(int boardNum);
+    // 상세조회 하려면 글번호가 필요함.
+    // 매개변수를 글번호로 줌 ( 빈값 채울 녀석 )
+
 
     // 게시글 삭제
 
-
-    // 게시글 수정
-
+    void deleteBoard(int boardNum);
 
     // 조회수 증가
+
+    void updateReadCnt(int boardNum);
 
 }

@@ -45,7 +45,20 @@ public class BoardController {
     }
 
     @GetMapping("/board_detail")
-    public String detail(){
+    public String detail(@RequestParam(name = "boardNum") int boardNum, Model model){
+        // 조회수 증가
+        boardService.updateReadCnt(boardNum);
+
+        // boardNum으로 넘어오는 변수를 boardNum으로 저장해서 쓰겠다
+        model.addAttribute("board", boardService.getBoardDetail(boardNum));
+
         return "board_detail";
     }
+
+    @GetMapping("/deleteBoard")
+    public String deleteBoard(@RequestParam(name = "boardNum") int boardNum){
+        boardService.deleteBoard(boardNum);
+        return "redirect:/";
+    }
+
 }
