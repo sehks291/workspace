@@ -1,0 +1,10 @@
+.s1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.s1 > span{
+  flex-direction: row;
+  
+}
