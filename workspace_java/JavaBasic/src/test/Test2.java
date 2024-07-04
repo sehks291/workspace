@@ -1,24 +1,19 @@
-package 여섯째_배열.문제;
+package test;
 
 import java.util.Arrays;
 
-// 시험 문제 고대로 나옴.
-public class Test_2_8 {
+public class Test2 {
     public static void main(String[] args) {
-        /*
-        간단한 로또 번호 생성기
-        */
 
+        // 정수를 6개 저장하는 배열
         int[] lotto = new int[6];
 
+        // 배열의 길이만큼 반복해서 나오게 만들기
+        // 단, 그 숫자는 45 초과가 나오면 안됨.
+        // 중복은 가능
         for(int i = 0 ; i < lotto.length ; i++){
             lotto[i] = (int)(Math.random() * 45 + 1);
         }
-
         System.out.println(Arrays.toString(lotto));
-
-        // 1.0 < = x <= 46.0 실수 !
-        int r = (int)(Math.random() * 45 + 1);
-
     }
 }
