@@ -37,22 +37,36 @@
   }
 }
 
-.blog-nav{
-  display: flex;
-  background-color: black;
-  color: white;
-  padding-left: 20px;
+.container{
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 30px;
 }
 
-.list{
-  text-align: left;
-  border-bottom: 1px solid gray;
-  padding-left: 20px;
+table{
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse; 
+  /* 이중선 방지 */
+  text-align: center;
+}
+
+tr, td{
+  border: 1px solid black;
+}
+
+td{
+  padding: 6px;
 }
 
 .detail{
   background-color: #eeeeee;
+  margin-top: 20px;
+  padding: 10px;
   text-align: left;
-  padding: 20px;
-  margin-top: 10px;
+  line-height: 2;
+}
+
+.title-span{
+  
 }
