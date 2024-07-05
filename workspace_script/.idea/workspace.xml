@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="030f4e54-e4c2-4935-a3b0-08c066ec0889" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../workspace_htmlcss/css/test.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workspace_htmlcss/css/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workspace_react/blog/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace_react/blog/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workspace_react/blog/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace_react/blog/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="030f4e54-e4c2-4935-a3b0-08c066ec0889" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
