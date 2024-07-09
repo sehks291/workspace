@@ -14,7 +14,7 @@ public class Test5 {
         String grade;
         // 문자열 넣기
 
-        // java는 중복된느 문자열을 싫어함.
+        // java는 중복되는 문자열을 싫어함.
         // 현재 문자에서 중복되는 코드는 println
 
         if( a > 90 && a <= 100){
