@@ -8,6 +8,7 @@ public class Test_3 {
 
         System.out.print("1~99 사이의 정수를 입력하시오>>");
         int num = sc.nextInt();
+
         // 10의 자리
         int tens = num / 10;
         // 1의 자리
