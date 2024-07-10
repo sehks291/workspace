@@ -8,6 +8,7 @@ public class MemberTest {
 
         mem.showInfo();
 
+        // 로그인 가능한 경우
         mem.isLogin("java", "abcd1234");
         mem.isLogin("java", "abcd");
     }

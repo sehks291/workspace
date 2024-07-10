@@ -23,7 +23,8 @@ public class MathUtilImpl implements MathUtil{
     }
 
     @Override
-    public boolean getArraySum(int[] arr) {
-        return false;
+    public int getArraySum(int[] arr) {
+        return 0;
     }
+
 }

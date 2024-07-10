@@ -11,7 +11,7 @@ public interface MathUtil {
     int getSumFromOne(int num);
 
     //아래 요구사항을 만족하는 getArraySum()메소드를 정의하시오.
-    boolean getArraySum(int[] arr);
+    int getArraySum(int[] arr);
     //매개변수로 정수형 배열이 들어오면
     //해당 배열의 모든 요소의 합을 리턴
 
