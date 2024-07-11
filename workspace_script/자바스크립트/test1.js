@@ -68,8 +68,16 @@ item_list.forEach((item, i)=>{
 
 //2. 95 사이즈를 구매할 수 있는 상품들의 상품명을 콘솔창에 출력하시오.
 // forEach문
-item_list.forEach((item, i)=>{
-  item.size.forEach((size, j)=>{
+item_list.forEach((item, i)=>{ 
+  // item_list라는 배열을 for문 돌려서 순차적으로 찾아냄
+  // 그걸 빼낸걸 item이라고 하고 그 item은 객체임.
+  item.size.forEach((size, j)=>{ 
+    // 그 item 객체 안에 있는 것에 접근하려면 . 찍을 수 있음
+    // . 찍고 그 객체 안에 size라는 것에 접근
+    // 그 size에 접근하면 size 안에 있느 것들은 또 배열임.
+    // 그 배열을 다시 for문 돌림.
+    // 그럼 그 size 안에 있는 것들은 정수형으로 나옴.
+    // 그걸 if문으로 비교하면 됨. 
     if(size == 95)
       console.log(item.item_name);
   });
