@@ -28,10 +28,6 @@ public class Test5 {
         System.out.println("세번째 수를 입력하세요 : ");
         int num3 = sc.nextInt();
 
-
-
-
-
     }
 
 }

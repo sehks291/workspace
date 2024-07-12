@@ -18,10 +18,11 @@ public class Test4 {
         System.out.println("1~999 사이의 정수를 입력하세요.");
         int num = sc.nextInt();
 
+
         // 100의 자리
         int huns = num / 100;
         // 10의 자리
-        int tens = num / 10;
+        int tens = (num % 100) / 10;
         // 1의 자리
         int ones = num % 10;
 
