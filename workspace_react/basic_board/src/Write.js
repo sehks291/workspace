@@ -30,8 +30,6 @@ const Write = ({board_list, setBoardList}) => {
   }
 
   return(
-
-
   <>
     <div>
       글번호 <input type='text' name='boardNum' onChange={(e) => {

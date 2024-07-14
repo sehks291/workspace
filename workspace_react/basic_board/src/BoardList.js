@@ -43,7 +43,7 @@ const BoardList = ({board_list}) => {
       </tbody>
     </table>
     <button tpye="button" onClick={(e) => {navigate('/writerForm')}}>글쓰기</button>
-    <button tpye="button" onClick={(e) => {navigate('/delete')}}>글삭제</button>
+
     </>
   );
 }
