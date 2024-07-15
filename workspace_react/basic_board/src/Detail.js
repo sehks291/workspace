@@ -1,11 +1,12 @@
 // 상세보기 화면
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Detail = ({board_list}) => {
   console.log(board_list)
 
   // url로 넘어오는 데이터 받기 위해서 
+  const navaigate = useNavigate();
   const params = useParams();
 
   console.log(params);
@@ -28,6 +29,18 @@ const Detail = ({board_list}) => {
       <div>글내용 : {board.content}</div>
       <div>작성자 : {board.writer}</div>
       <div>작성일 : {board.createDate}</div>
+      <div>
+        <button type="button" onClick={(e) => {
+            board_list.forEach((board, i) => {
+              if(board.boardNum == boardNum){
+                  board_list.splice(i, 1);
+              }
+            });
+
+        navaigate('/');
+        }}>삭제</button>
+        
+      </div>
     </div>
   );
 }

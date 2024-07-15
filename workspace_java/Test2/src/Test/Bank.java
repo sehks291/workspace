@@ -32,14 +32,34 @@ public class Bank {
     //1. 매개변수로 전달되는 계좌번호 및 회원이름과 동일한 정보를 가진
     // 고객 정보를 리턴하는 메서드를 정의하시오.
     // 만약 매개변수로 전달된 계좌번호와 일치하는 고객이 없다면 null을 리턴하시오.
-    String clientList(Account[] accNumber, int clientNumber) {
-        return null;
+
+    // 고객 정보를 리턴하기 때문에 리턴은 Client
+    public Client getClient(String accNumber, String name) {
+            Client resultClient = null;
+
+            for(Client c : clientList){
+                if( c.getAccInfo().getAccNUmber().eqauls(accNUmber)
+                && c.getName().eqauls(name)){
+                    resultClient = c;   
+                }
+            }
+
+            return resultClient;
     }
 
     //2. 매개변수로 전달되는 예금액을 초과하는 예금액을 가진 회원들의 목록을 리턴하는
     // 메서드를 정의하시오.
-    int balanceOverList(Account[] accNumber, int balance) {
-        return 0;
+    public List<Client> getClientList(int balance){
+
+        List<Client> resultList = new ArrayList<>();
+
+        for(Client c : clientList){
+            if(c.getAccInfo.getBalance > balance){
+                resultList.add(c);
+            }
+        }
+        return resultList;
+
     }
 
 
