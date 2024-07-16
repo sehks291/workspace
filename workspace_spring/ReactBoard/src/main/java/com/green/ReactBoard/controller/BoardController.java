@@ -5,6 +5,7 @@ import com.green.ReactBoard.service.BoardService;
 import com.green.ReactBoard.vo.BoardVO;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,6 +28,13 @@ public class BoardController {
         List<BoardVO> boardList = boardService.getBoardList();
         return boardList;
     }
+
+    // 게시글 상세 조회
+    @GetMapping("/boardDetail/{boardNum}")
+        public BoardVO getBoardDetail(@PathVariable("boardNum") int boardNum){
+        return boardService.getBoardDetail(boardNum);
+    }
+
 
 
 

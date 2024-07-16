@@ -26,6 +26,15 @@
     </select>
 
 
+    <select id="getBoardDetail" resultMap="board">
+        SELECT BOARD_NUM
+             , BOARD_TITLE
+             , BOARD_WRITER
+             , BOARD_CONTENT
+             , CREATE_DATE
+        FROM REACT_BOARD
+        WHERE BOARD_NUM = #{boardNum};
+    </select>
 </mapper>
 
 

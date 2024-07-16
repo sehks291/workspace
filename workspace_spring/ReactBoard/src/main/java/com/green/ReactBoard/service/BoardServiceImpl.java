@@ -20,6 +20,10 @@ public class BoardServiceImpl implements BoardService{
          return boardList;
     }
 
+    @Override
+    public BoardVO getBoardDetail(int boardNum) {
+         return sqlSession.selectOne("boardMapper.getBoardDetail", boardNum);
+    }
 
 
 }

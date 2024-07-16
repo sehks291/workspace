@@ -10,4 +10,7 @@ public interface BoardService {
 
     List<BoardVO> getBoardList();
 
+    // 게시글 상세 정보 조회
+    BoardVO getBoardDetail(int boardNum);
+
 }
