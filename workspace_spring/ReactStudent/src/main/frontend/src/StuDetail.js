@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import { getStuDetail } from './apis';
 
 const StuDetail = () => {
 
@@ -9,8 +10,9 @@ const StuDetail = () => {
   const [stuInfo, setStuInfo] = useState({});
 
   useEffect(()=>{
-    axios
-    .get(`/getStuDetail/${stuNum}`)
+    // axios
+    // .get(`/getStuDetail/${stuNum}`)
+    getStuDetail(stuNum)
     .then((res)=>{
       console.log("성공")
       setStuInfo(res.data);

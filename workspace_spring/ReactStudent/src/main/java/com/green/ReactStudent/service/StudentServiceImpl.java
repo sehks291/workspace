@@ -37,5 +37,10 @@ public class StudentServiceImpl implements StudentService{
         sqlSession.delete("studentMapper.deleteStudent", stuNum);
     }
 
+    @Override
+    public void updateScore(StudentVO studentVO) {
+        sqlSession.update("studentMapper.updateScore", studentVO);
+    }
+
 
 }

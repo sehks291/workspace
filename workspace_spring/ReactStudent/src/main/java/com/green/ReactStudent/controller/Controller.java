@@ -16,6 +16,7 @@ public class Controller {
 
 
     // 학생 목록 조회
+    // 목록 조회는 화면에 뿌리기만 하면 되서 리턴값 x
     @GetMapping("/getStuList")
     public List<StudentVO> getStuList(){
         return studentService.getStuList();
@@ -23,6 +24,7 @@ public class Controller {
 
 
     // 학생 등록
+    // ? 등록도 리턴이 없나?
     @PostMapping("/insertStudent")
     public void insertStudent(@RequestBody StudentVO studentVO){
         System.out.println(studentVO);
@@ -43,5 +45,12 @@ public class Controller {
     public void deleteStudent(@PathVariable("stuNum") int stuNum){
         studentService.deleteStudent(stuNum);
     }
+
+    // 점수 변경
+    @PutMapping("/updateScore")
+    public void updateScore(@RequestBody StudentVO studentVO){
+        studentService.updateScore(studentVO);
+    }
+
 
 }

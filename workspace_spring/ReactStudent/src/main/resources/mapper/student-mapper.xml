@@ -67,6 +67,14 @@
         WHERE STU_NUM = #{stuNum};
     </delete>
 
+    <update id="updateScore">
+        UPDATE react_student
+        SET
+          KOR_SCORE = #{korScore}
+        , ENG_SCORE = #{engScore}
+        , MATH_SCORE = #{mathScore}
+          WHERE STU_NUM = #{stuNum};
+    </update>
 
 </mapper>
 

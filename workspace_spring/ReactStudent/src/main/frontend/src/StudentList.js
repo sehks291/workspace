@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import './StudentList.css';
 import DelStu from "./DelStu";
 import { useNavigate } from "react-router-dom";
+import { getStuList } from "./apis";
+
 
 
 const StudentList = () => { 
@@ -13,8 +15,9 @@ const StudentList = () => {
   const navigate = useNavigate();
   
   useEffect(()=>{
-    axios
-    .get('/getStuList')
+    // axios
+    // .get('/getStuList')
+    getStuList()
     .then((res)=>{
       console.log("성공")
       console.log(res);
@@ -52,7 +55,7 @@ const StudentList = () => {
               return(
                 <tr key={i}>
                 {/* <td>{stuList.length - i}</td> */}
-                <td>{i+1}</td>
+                <td>{stuList.length - i}</td>
                 <td>
                   <span onClick={()=>{
                     navigate(`/StuDetail/${stu.stuNum}`)

@@ -12,9 +12,12 @@ public interface StudentService {
     // 학생 등록
     void insertStudent(StudentVO studentVO);
 
-    // 학생 상세정보조회
+    // 학생 상세 정보 조회
     StudentVO getStuDetail(int stuNum);
 
     // 학생 삭제
     void deleteStudent(int stuNum);
+
+    // 점수 등록(변경)
+    void updateScore(StudentVO studentVO);
 }

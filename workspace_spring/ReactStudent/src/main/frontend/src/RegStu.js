@@ -44,10 +44,10 @@ const RegStu = () => {
 
   return (
     <div>
-      이름 <input name="stuName" onChange={(e)=>{chaneStuInfo(e)}} /> <br/>
-      나이 <input name="stuAge" onChange={(e)=>{chaneStuInfo(e)}} /> <br/>
-      연락처 <input name="stuTel" onChange={(e)=>{chaneStuInfo(e)}} /> <br/>
-      주소 <input name="stuAddr" onChange={(e)=>{chaneStuInfo(e)}} /> <br/>
+      이 름 <input name="stuName" onChange={(e)=>{chaneStuInfo(e)}} /> <br/>
+      나 이 <input name="stuAge" onChange={(e)=>{chaneStuInfo(e)}} /> <br/>
+      전 화 <input name="stuTel" onChange={(e)=>{chaneStuInfo(e)}} /> <br/>
+      주 소 <input name="stuAddr" onChange={(e)=>{chaneStuInfo(e)}} /> <br/>
       <button type="button" onClick={(e)=>{regStudent()}}>학생 등록</button>
     </div>
   );

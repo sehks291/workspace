@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import './DelStu.css';
 import { useNavigate, useParams } from "react-router-dom";
+import { getStuList } from "./apis";
+
 
 const DelStu = () => {
 
@@ -10,8 +12,9 @@ const DelStu = () => {
   const navigate = useNavigate();
 
   useEffect(()=>{
-    axios
-      .get('/getStuList')
+    // axios
+    // .get('/getStuList')
+      getStuList()
       .then((res)=>{
         console.log("성공")
         setStuList(res.data);
@@ -20,8 +23,8 @@ const DelStu = () => {
       console.log("오류")
       })
     },[]);
-
-
+     
+    
     // 학생 삭제하는 부분
     function deleteStudent(stuNum){
       axios
@@ -29,13 +32,18 @@ const DelStu = () => {
       .then((res)=>{
         alert("삭제되었습니다.")
         // stuList 라는 state 변수의 값을 변경 -> 재랜더링 되면서 알아서 그림 새로 그림.
-        stuList.forEach((stu, i)=>{
-          if(stu.stuNum == stuNum){
-            stuList.splice(i, 1);
-          }
-        });
+        // state 변수의 값을 state 변경 함수를 사용해서 변경
+        // DB에서 삭제한 학생정보를 stuList에서도 삭제 
 
-        setStuList([...stuList]);
+        // stuList.forEach((stu, i)=>{
+        //   if(stu.stuNum == stuNum){
+        //     stuList.splice(i, 1);
+        //   }
+        // });
+
+        const result = stuList.filter((stu) =>  stu.stuNum != stuNum);
+        setStuList([...result]);
+
       })
       .catch((error)=>{
         alert("오류");
