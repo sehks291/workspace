@@ -43,7 +43,7 @@ const RegStu = () => {
   }
 
   return (
-    <div>
+    <div className="divInput">
       이 름 <input name="stuName" onChange={(e)=>{chaneStuInfo(e)}} /> <br/>
       나 이 <input name="stuAge" onChange={(e)=>{chaneStuInfo(e)}} /> <br/>
       전 화 <input name="stuTel" onChange={(e)=>{chaneStuInfo(e)}} /> <br/>

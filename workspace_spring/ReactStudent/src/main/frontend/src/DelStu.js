@@ -67,7 +67,9 @@ const DelStu = () => {
                 return(
                   <tr key={i}>
                     <td>{stuList.length - i }</td>
-                    <td>{stu.stuName}</td>
+                    <td>
+                      <span onClick={(e)=>{navigate('/')}}>{stu.stuName}</span>
+                    </td>
                     <td><button type="button" onClick={(e)=>{deleteStudent(stu.stuNum)}}>삭제</button></td>
                   </tr>
                 );

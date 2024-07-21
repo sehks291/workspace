@@ -38,3 +38,16 @@ ul span:hover{
   margin: 0 auto;
   margin-top: 30px;
 }
+
+.divInput{
+  padding: 5px;
+}
+
+.divInput > input{
+  margin-top: 7px;
+}
+
+.divInput > button{
+  margin-top: 7px;
+  
+}

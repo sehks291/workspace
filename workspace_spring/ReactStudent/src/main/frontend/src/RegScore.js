@@ -32,6 +32,14 @@ const RegScore = () => {
     getStuDetail(stuNum)
     .then((res)=>{
       setStu(res.data);
+
+      const {korScore, engScore, mathScore} = res.data;
+      setUpdateData({
+        korScore : korScore,
+        engScore : engScore,
+        mathScore : engScore
+      });
+
     })
     .catch((error)=>{
       alert('오류');
