@@ -37,7 +37,7 @@ const RegScore = () => {
       setUpdateData({
         korScore : korScore,
         engScore : engScore,
-        mathScore : engScore
+        mathScore : mathScore
       });
 
     })
