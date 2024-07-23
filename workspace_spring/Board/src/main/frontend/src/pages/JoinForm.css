@@ -1,0 +1,50 @@
+.join-div{
+  width: 20%;
+  margin: 0 auto;
+}
+
+.join-div > div{
+  margin-bottom: 16px;
+}
+
+.join-div p{
+  margin-bottom: 4px;
+}
+
+.id-area{
+  display: flex;
+  gap: 4px;
+}
+
+.id-area > input{
+  width: 70%;
+}
+
+.id-area > button{
+  width: 30%;
+}
+
+.gender-div{
+  display: flex;
+  justify-content: center;
+}
+
+.gender-div > div:nth-child(1){
+  width: 20%;
+}
+
+.gender-div > div:nth-child(2){
+  width: 20%;
+}
+
+.gender-div > div:nth-child(3){
+  width: 20%;
+}
+
+.btn-div{
+  text-align: center;
+}
+
+.join-div > div p{
+  margin-top: 20px;
+}
