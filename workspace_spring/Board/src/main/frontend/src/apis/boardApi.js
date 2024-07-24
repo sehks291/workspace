@@ -7,5 +7,4 @@ import axios from "axios"
 export const getBoardList = () => {
   const response = axios.get('/board/list');
   return response;
-  
 }

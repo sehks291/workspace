@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import * as boardApi from '../apis/boardApi';
+import '../pages/BoardList.css';
 
 const BoardList = () => {
 
   // 가져올 값
   const [boardList, setBoardList] = useState([]);
+
   const navigate = useNavigate();
   
-
   // 게시글 조회 기능
   useEffect(()=>{
     boardApi.getBoardList()
@@ -23,17 +24,14 @@ const BoardList = () => {
   }, []);
 
   return (
-    <>
     <div className='board-list-container'>
-        <div className='serch-div'>
-          <div className='serch-div2'>
+        <div className='search-div'>
             <select>
               <option>제목</option>
               <option>작성자</option>
             </select>
-            <input type='text'/>
+            <input type='text' className='board-inp'/>
             <button tpye='button' className='btn'>검색</button>
-          </div>
         </div>
         <div className='board-list-div'>
           <table>
@@ -68,9 +66,7 @@ const BoardList = () => {
           </table>
         <button type='button' className='btn btn2'>글쓰기</button>
         </div>
-        
     </div>
-    </>
   )
 }
 

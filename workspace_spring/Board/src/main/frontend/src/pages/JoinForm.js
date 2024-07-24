@@ -79,7 +79,7 @@ const JoinForm = () => {
      // 회원가입
       memberApi.join(joinData)
       .then((res)=>{
-        alert('회원가입을 축하드립니다.')
+        alert('회원가입을 축하드립니다.') 
         navigate('/loginForm');
       })
       .catch((error)=>{

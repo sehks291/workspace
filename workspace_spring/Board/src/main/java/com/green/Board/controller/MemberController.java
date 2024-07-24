@@ -38,8 +38,11 @@ public class MemberController {
 
     // 로그인
     @PostMapping("/login")
-    public void login(@RequestBody MemberVO memberVO){
-          memberService.login(memberVO);
+    public MemberVO login(@RequestBody MemberVO memberVO){
+        // 조회된 데이터가 없으면 Null
+        MemberVO member = memberService.login(memberVO);
+        // 비동기 통신 - axios에서 then으로 값 가져가려면 return 사용
+        return member;
     }
 
 }
