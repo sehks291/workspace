@@ -1,64 +1,76 @@
 import logo from './logo.svg';
 import './reset.css';
 import './App.css';
-import { json, Route, Routes, useNavigate } from 'react-router-dom';
-
-import JoinForm from './pages/JoinForm';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import BoardList from './pages/BoardList';
+import JoinForm from './pages/JoinForm';
 import LoginForm from './pages/LoginForm';
 import { useEffect, useState } from 'react';
+import BoardWrite from './pages/BoardWrite';
+import Detail from './pages/BoardDetail';
+import BoardDetail from './pages/BoardDetail';
 
 function App() {
-
   const navigate = useNavigate();
+
   const [loginInfo, setLoginInfo] = useState({});
 
-  useEffect(()=>{
+  useEffect(()=> {
     const loginDataString = window.sessionStorage.getItem('loginInfo');
-    
-    // 로그인 정보가 있으면...
+
     if(loginDataString != null){
-      const loginData = JSON.parse(loginDataString); // json 객체로 변환
-      setLoginInfo(loginData); // 객체로 변환된 로그인 정보를 loginInfo 변수에 저장
+      const loginData = JSON.parse(loginDataString);
+      setLoginInfo(loginData);
     }
+
   }, []);
 
-  // 로그인 여부 확인
-  // 다른 곳에서 만든 session 정보 빼오기
-  // sessionStorage에 데이터 없으면 null 나옴
-  
   return (
-    <div className="App">
-          {
-            loginInfo.memId == null ? <div>로그인x</div> : <div>로그인o</div>
-            // loginInfo <- 로그인 정보가 담기는 곳
-          }
+    <div className="container">
       <div className='header'>
         <div>
+          {
+            loginInfo.memId == null 
+            ? 
+            <>
+              <span onClick={(e) => {navigate('/loginForm')}}>Login</span>
+              <span onClick={(e) => {navigate('/joinForm')}}>Join</span>
+            </>
+            : 
+            <div>
+              {loginInfo.memId}님 반갑습니다.
+              <span onClick={(e) => {
+                //세션스토리지에 저장된 로그인 정보를 제거
+                window.sessionStorage.removeItem('loginInfo');
+                setLoginInfo({});
+                alert('로그아웃!');
+                navigate('/');
+              }}>Logout</span>
+            </div>
+          }
 
-          {/* 로그인 안했을 때 */}
-          <span onClick={(e)=>{navigate('/')}}>main</span>
-          <span onClick={(e)=>{navigate('/loginForm')}}>Login</span>
-          <span onClick={(e)=>{navigate('/joinForm')}}>join</span>
-
-
-          {/* 로그인 했을 때 */}
         </div>
-        <h1>자유게시판</h1>
+        <h1>자 유 게 시 판</h1>
       </div>
-      
-      <Routes>
+      <div className='content'>
+        <Routes>
+          {/* 게시글 목록 페이지 */}
+          <Route path='/' element={ <BoardList loginInfo={loginInfo}/> } />
 
-      {/* 게시글 목록 페이지 */}
-      <Route path='/' element={<BoardList/>}/>
+          {/* 회원가입 페이지 */}
+          <Route path='/joinForm' element={ <JoinForm /> } />
 
-      {/* 회원가입 페이지 */}
-      <Route path='/joinForm' element={<JoinForm />}/>
+          {/* 로그인 페이지 */}
+          <Route path='/loginForm' element={ <LoginForm setLoginInfo={setLoginInfo}/> } />
 
-      {/* 로그인 페이지 */}
-      <Route path='/loginForm' element={<LoginForm/>}/>
+          {/* 게시글 작성 페이지 */}
+          <Route path='/boardWrite' element={<BoardWrite loginInfo={loginInfo}/>}/>
 
-      </Routes>
+          {/* 게시글 상세보기 페이지 */}
+          <Route path='/detail/:boardNum' element={<BoardDetail />}/>
+
+        </Routes>
+      </div>
     </div>
   );
 }
