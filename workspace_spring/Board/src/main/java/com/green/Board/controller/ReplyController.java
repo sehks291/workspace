@@ -21,5 +21,11 @@ public class ReplyController {
         return replyService.getReplyList(boardNum);
     }
 
+    //댓글 등록
+    @PostMapping("/insert")
+    public void insertReply(@RequestBody ReplyVO replyVO){
+        replyService.insertReply(replyVO);
+    }
+
 
 }

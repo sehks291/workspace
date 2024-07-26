@@ -12,7 +12,6 @@
         <result column="BOARD_NUM"      property="boardNum"/>
     </resultMap>
 
-
     <!--  댓글 목록 조회   -->
     <select id="getReplyList" resultMap="reply">
         SELECT
@@ -24,6 +23,19 @@
         FROM board_reply
         WHERE board_num = #{boardNum};
     </select>
+
+    <!-- 댓글 등록 기능-->
+    <insert id="insertReply">
+        INSERT INTO BOARD_REPLY (
+            reply_content
+        ,   mem_id
+        ,   board_num
+        ) VALUES (
+            #{replyContent}
+        ,   #{memId}
+        ,   #{boardNum}
+        );
+    </insert>
 </mapper>
 
 
