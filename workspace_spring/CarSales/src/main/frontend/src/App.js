@@ -15,7 +15,7 @@ function App() {
       <Route path='/manage' element={<Manage/>}/>
 
       {/* 판매정보 화면 */}
-      <Route />
+      <Route/>
     </Routes>
     </div>
   );
