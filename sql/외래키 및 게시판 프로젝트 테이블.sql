@@ -15,7 +15,8 @@
 -- 회원정보
 -- USER : 일반회원
 -- ADMIN : 관리자
-CREATE TABLE BOARD_MEMBER (
+
+CREATE TABLE board_member (
 	-- PRIMARY KEY NULL X 중복 X
 	MEM_ID VARCHAR(50) PRIMARY KEY
 ,  MEM_PW VARCHAR(50) NOT NULL
@@ -105,3 +106,94 @@ ORDER BY board_num DESC, reply_num desc;
 
 
 SELECT BOARD_NUM, TITLE, MEM_ID, CREATE_DATE FROM board;
+
+
+-- 아이디 중복 여부 확인 쿼리문
+SELECT MEM_ID
+FROM board_member;
+
+
+SELECT mem_id
+FROM board_member
+WHERE mem_id = 'java'
+AND mem_pw = '1111';
+
+
+SELECT board_num
+	,   title
+	,   content
+	,   mem_id
+	,   create_date
+FROM board
+WHERE board_num = 1;
+
+SELECT * FROM board_reply;
+
+SELECT 
+	reply_num
+,	reply_content
+,  reply_date
+,  mem_id
+,  board_num
+FROM board_reply
+WHERE board_num = 1;
+
+
+-- 아이디가 'java'인 회원이 작성한 게시글의
+-- 글제목, 내용, 작성자id, 작성자명, 작성자 권한 조회
+
+SELECT TITLE, CONTENT, b.MEM_ID, m.mem_id, MEM_NAME, MEM_ROLE
+FROM board b, board_member m
+WHERE b.mem_id = m.mem_id
+AND b.mem_id = 'java';
+
+
+-- 글번호가 5번 이하인 게시글의
+-- 글번호, 제목, 글 작성자명을 조회하되
+-- 글번호 기준 오름차순으로 정렬
+
+SELECT board_num, title, b.mem_id, m.mem_id, mem_name
+FROM board b, board_member m
+WHERE b.mem_id = m.mem_id
+AND board_num <= 5
+ORDER BY board_num;
+
+-- 1번 게시글의 제목, 작성자 id 및
+-- 1번 게시글에 작성된 댓글의 댓글 내용 조회
+
+SELECT * FROM board_reply;
+
+SELECT title, b.mem_id, reply_content, b.board_num
+FROM board b, board_reply r
+WHERE b.board_num = r.board_num
+AND b.board_num = 1;
+
+
+-- 1번 게시글의 제목, 작성자 id 및
+-- 1번 게시글에 작성된 댓글의 댓글 내용, 댓글 작성자 id, 댓글 작성자 이름 조회
+
+SELECT title, b.mem_id, r.mem_id, reply_content, mem_name
+FROM board b, board_reply r, board_member m
+WHERE b.board_num = r.board_num
+AND r.mem_id = m.mem_id
+AND b.board_num = 1;
+
+
+SELECT BOARD_NUM
+    ,  TITLE
+    ,  B.MEM_ID
+    ,  MEM_NAME
+    ,  MEM_ROLE
+FROM BOARD B, BOARD_MEMBER M
+WHERE B.MEM_ID = M.MEM_ID;
+
+SELECT * FROM board;
+SELECT * FROM board_reply;
+
+DELETE FROM board WHERE board_num = 5; -- 해당 번호의 게시글 삭제
+DELETE FROM board_reply WHERE board_num = 2; -- 해당 번호 게시글의 댓글 전부 삭제
+
+DELETE FROM board_reply WHERE board_num = 2;
+DELETE FROM board WHERE board_num = 2;
+
+1
