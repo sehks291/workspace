@@ -24,7 +24,7 @@
         <!-- </if> -->
         ORDER BY BOARD_NUM DESC
         <!-- LIMIT 5 OFFSET 페이징 처리를 위한 쿼리문 -->
-        LIMIT #{displayDataCnt} OFFSET #{displayDataCnt} * 3
+        LIMIT #{displayDataCnt} OFFSET #{offset}
     </select>
 
     <insert id="insertBoard">

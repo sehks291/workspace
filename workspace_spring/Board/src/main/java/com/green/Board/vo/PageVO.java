@@ -34,12 +34,15 @@ public class PageVO {
     //다음 버튼 유무
     private boolean next;
 
+    // 조회 쿼리에서 OFFSET에 들어갈 데이터
+    private int offset;
+
     //생성자
     //매개변수 : 디비에서 조회한 전체 데이터 수
     public PageVO(int totalDataCnt){
         nowPage = 1;
         displayPageCnt = 5;
-        displayDataCnt = 5;
+        displayDataCnt = 3;
         this.totalDataCnt = totalDataCnt;
     }
 
@@ -63,6 +66,8 @@ public class PageVO {
 
         //다음 버튼 유무
         next = endPage != totalPageCnt;
+
+        offset = displayDataCnt * (nowPage - 1);
 
     }
 

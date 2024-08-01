@@ -1,0 +1,124 @@
+.container{
+  /* border: 1px solid black; */
+  width: 100vw;
+}
+
+.login-div{
+  width: 100%;
+  color: white;
+  background-color: #000000;
+}
+
+.layout-div{
+  /* border: 1px solid red; */
+  width: 80%;
+  margin: 0 auto;
+}
+
+.banner{
+  position: relative;
+  /* 이미지 위에 글자를 보이게 하기 위해선
+     해당 태그를 감싸고 있는 부모 태그에 속성값을 줌 - position-relative
+  */
+}
+
+.title-div{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* 보기에 하기 위해선 일단 top, left 0px */
+  /* 정확하게 가운데 오기 위해선 top, left 50% 
+     한 후에 transform으로 -50%, -50% */
+  font-size: 3rem;
+  /* font-weight: bold; */
+  font-style: italic;
+  letter-spacing: 10px;
+  /* 자간 변경 */
+  word-spacing: -30px;
+  /* 띄어쓰기 간격 변경 */
+}
+
+.banner-img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover; 
+  /* 이미지 안깨지게 원본 비율 주는 기능 */
+  object-position: center;
+  /* 원본 비율에서 이미지가 보일 위치 지정 - 기본값 center */
+  display: block;
+  /* 이미지 밑에 남는 공간(여백) 삭제하려면 속성 block으로 변경 */
+}
+
+.header-menu{
+  display: flex;
+  justify-content: end;
+  padding-right: 100px;
+  padding: 10px 0;
+}
+
+.header-menu > li{
+  width: 100px;
+  text-align: center;
+}
+
+.header-menu span{
+  cursor: pointer;
+}
+
+
+/* ------------------- */
+/* --- 공통 디자인 --- */
+/* ------------------- */
+
+/* btn 태그 */
+
+.btn-div{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+/* input 태그 */
+.form-control{
+  width: 100%;
+  padding: 4px;
+  border-radius: 6px;
+  border: 2px solid #80af81;
+}
+
+.form-control::placeholder{
+  font-size: 0.7rem;
+}
+
+.form-control:focus{
+  outline: 1px solid #508d4e;
+}
+
+/* button 태그 */
+.btn{
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-primary{
+  background-color: aqua;
+  border: 1px solid aqua;
+}
+
+.btn-primary:active{
+  background-color: rgb(0, 245, 245);
+  border: 1px solid rgb(0, 245, 245);
+}
+
+.btn-second{
+  background-color: #dddddd;
+  border: 1px solid #dddddd;
+}
+
+.btn-second:active{
+  background-color: #cccccc;
+  border: 1px solid #cccccc;
+}
