@@ -4,6 +4,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import UserLayout from './pages/user/UserLayout';
 import AdminLayout from './pages/admin/AdminLayout';
 import Join from './pages/user/Join';
+import Login from './pages/user/Login';
 
 function App() {
 
@@ -38,6 +39,9 @@ function App() {
 
           {/* 회원가입 페이지 */}
           <Route path='join' element={<Join/>}/>
+
+          {/* 로그인 페이지 */}
+          <Route path='login' element={<Login/>}/>
 
         </Route>
         

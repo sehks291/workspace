@@ -9,6 +9,13 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'MangoDdobak-B';
+	src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/MangoDdobak-B.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -57,7 +64,7 @@ table {
   box-sizing: border-box;
 	/* font-family: "Noto Sans", sans-serif; */
 	font-family: "Montserrat", sans-serif; 
-	font-family: 'Ownglyph_meetme-Rg';
+	font-family: 'MangoDdobak-B';
 	font-size: 22px;
 }
 

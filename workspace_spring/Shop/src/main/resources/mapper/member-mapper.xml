@@ -3,17 +3,51 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <mapper namespace="memberMapper">
+
+    <!--  순서1   -->
 	<resultMap id="member" type="com.green.Shop.member.vo.MemberVO">
-        <result column="MEM_ID" property="memId" />
-        <result column="MEM_PW" property="memPw" />
-        <result column="MEM_NAME" property="memName" />
-        <result column="MEM_TEL" property="memTel" />
-        <result column="POST" property="post" />
-        <result column="MEM_ADDR" property="memAddr" />
-        <result column="ADDR_DETAIL" property="addrDetail" />
-        <result column="MEM_EMAIL" property="memEmail" />
-        <result column="MEM_ROLE" property="memRole" />
+        <id     column="MEM_ID"         property="memId" />
+        <result column="MEM_PW"         property="memPw" />
+        <result column="MEM_NAME"       property="memName" />
+        <result column="MEM_TEL"        property="memTel" />
+        <result column="POST"           property="post" />
+        <result column="MEM_ADDR"       property="memAddr" />
+        <result column="ADDR_DETAIL"    property="addrDetail" />
+        <result column="MEM_EMAIL"      property="memEmail" />
+        <result column="MEM_ROLE"       property="memRole" />
     </resultMap>
+
+        <!-- 회원 등록(가입)  -->
+        <insert id="join">
+                INSERT INTO SHOP_MEMBER (
+                       MEM_ID
+                     , MEM_PW
+                     , MEM_NAME
+                     , MEM_TEL
+                     , POST
+                     , MEM_ADDR
+                     , ADDR_DETAIL
+                     , MEM_EMAIL
+                 )
+                VALUES (
+                     #{memId}
+                     , #{memPw}
+                     , #{memName}
+                     , #{memTel}
+                     , #{post}
+                     , #{memAddr}
+                     , #{addrDetail}
+                     , #{memEmail}
+                 )
+        </insert>
+
+
+        <!-- 아이디 중복확인 -->
+            <select id="duplicationId" resultType="String">
+                SELECT MEM_ID
+                FROM shop_member
+                WHERE MEM_ID = #{memId}
+            </select>
 </mapper>
 
 
