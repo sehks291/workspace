@@ -23,4 +23,6 @@ public class MemberController {
     public boolean checkId(@PathVariable("inputId") String memId){
         return memberService.duplicationId(memId);
     }
+
+
 }

@@ -6,7 +6,7 @@
 .login-div{
   width: 100%;
   color: white;
-  background-color: #000000;
+  background-color: #dddddd;
 }
 
 .layout-div{
@@ -209,3 +209,24 @@
     transform: translateY(-50px);
   }
 }
+
+/* validtaion 디자인 */
+.feedback{
+  font-size: 0.7rem;
+  margin-top: 7px;
+  margin-bottom: -5px;
+  padding-left: 8px;
+  /* display: none; */
+  visibility: hidden;
+}
+
+.feedback.error{
+  color: red;
+  visibility: visible;
+}
+
+.feedback.good{
+  color: green;
+  visibility: visible;
+}
+

@@ -4,6 +4,7 @@ import { useDaumPostcodePopup } from 'react-daum-postcode';
 import axios from 'axios';
 import Modal from '../../common/Modal';
 import { useNavigate } from 'react-router-dom';
+import { joinValidate } from '../../validate/joinValidate';
 
 const Join = () => {
 
@@ -37,12 +38,11 @@ const Join = () => {
   const email_1 = useRef();
   const email_2 = useRef();
 
-
   // 회원가입 쿼리 실행 시 가져와서 저장할 변수
   const [joinData, setJoinData] = useState({
     memId: '',
     memPw: '',
-    confrimPw: '', // 비밀번호 확인하기 위해 만든 변수
+    confirmPw: '', // 비밀번호 확인하기 위해 만든 변수
     memName: '',
     memTel: '',
     post: '',
@@ -51,33 +51,52 @@ const Join = () => {
     memEmail: '' // 이메일은 받아올 경우 입력한 정보 뒤의 도메인을 합쳐서 가져와야함.
   });
 
+  // 태그를 참조할 변수
+  const memId_valid_tag = useRef();
+  const memPw_valid_tag = useRef();
+  const confirmPw_valid_tag = useRef();
+  const memName_valid_tag = useRef();
+  const memTel_valid_tag = useRef();
+  
+  const valid_tag = [
+    memId_valid_tag
+    , memPw_valid_tag
+    , confirmPw_valid_tag
+    , memName_valid_tag
+    , memTel_valid_tag
+];
+    // 유효성 검사 결과 저장할 변수
+    const [valid_result, setValideResult] = useState(false);
+
   // 가져온 데이터 변경할 함수
   function changeJoinData(e) {
-
-    setJoinData({
+    // 유효성 처리 정상화를 위해서 입력 데이터 가져오기
+    const newData = {
       ...joinData,
       [e.target.name]: e.target.name != 'memEmail' ?
         e.target.value : email_1.current.value + email_2.current.value
-    })
-    // 아래식을 위에 식처럼 삼항연산자로 변경하면 코드가 간단해짐.
-
-    // if(e.target.name == 'memEmail'){
-    //   setJoinData({
-    //     ...joinData,
-    //     [e.target.name] : email_1.current.value + email_2.current.value
-    //   })
-
-    // }
-    // else{
-    //   setJoinData({
-    //     ...joinData,
-    //     [e.target.name] : e.target.value
-    //   })
-    // }
+    }
+    // 입력한 데이터에 대한 유효성 검사
+    // Validation 처리 (유효성 체크확인 작업)
+      
+        const result = joinValidate(newData, valid_tag, e.target.name);
+        setValideResult(result)
+        
+    // 데이터를 입력할때마다 입력한 데이터를 JoinData에 저장
+    // 유효성 검사가 끝난 데이터를 joinData에 저장
+    setJoinData(newData);
+    
   }
+
 
   // 회원가입 버튼 클릭 시 insert 쿼리 실행하러 가기
   function join(){
+    // 유효성 검사 결과가 false면 회원가입 로직 중지
+    if(!valid_result){
+        alert('입력 데이터를 확인하세요');
+        return;
+    }
+
     // java로 가는건 앞에 api 붙여서 안 헷갈리게 하기
     axios.post('/api_member/join', joinData)
     .then((res)=>{
@@ -116,7 +135,6 @@ const Join = () => {
 
   return (
     <div className='join-div'>
-
       <div>
         <table className='join-table'>
           <tbody>
@@ -127,24 +145,37 @@ const Join = () => {
                   <input className='form-control' type='text' name='memId' onChange={(e) => { changeJoinData(e) }} />
                   <button className='btn btn-primary' type='button' onClick={()=>{checkId()}}>중복확인</button>
                 </div>
+                <div className='feedback' ref={memId_valid_tag}></div>
               </td>
             </tr>
             <tr>
               <td>비밀번호</td>
-              <td><input className='form-control' type='password' name='memPw' onChange={(e) => { changeJoinData(e) }} /></td>
+              <td><input className='form-control' type='password' name='memPw' 
+              
+              onChange={(e) => { changeJoinData(e) }} />
+              <div className='feedback' ref={memPw_valid_tag}></div>
+              </td>
             </tr>
             <tr>
               <td>비밀번호확인</td>
-              <td><input className='form-control' type='password' name='confirmPw' onChange={(e) => { changeJoinData(e) }} /></td>
+              <td><input className='form-control' type='password' name='confirmPw'
+
+              onChange={(e) => { changeJoinData(e) }} />
+              <div className='feedback' ref={confirmPw_valid_tag}></div>
+              </td>
             </tr>
             <tr>
               <td>이름</td>
-              <td><input className='form-control' type='text' name='memName' onChange={(e) => { changeJoinData(e) }} /></td>
+              <td><input className='form-control' type='text' name='memName' onChange={(e) => { changeJoinData(e) }} />
+              <div className='feedback' ref={memName_valid_tag}></div>
+              </td>
             </tr>
             <tr>
               <td>연락처</td>
               <td><input className='form-control' type='text' placeholder='숫자만 입력하세요.'
-                name='memTel' onChange={(e) => { changeJoinData(e) }} /></td>
+                name='memTel' onChange={(e) => { changeJoinData(e) }} />
+                <div className='feedback' ref={memTel_valid_tag}></div>
+                </td>
             </tr>
             <tr>
               <td>주소</td>
@@ -187,13 +218,10 @@ const Join = () => {
         </table>
       </div>
       <div className='btn-div'>
-        <button className='btn btn-primary' type='button' onClick={(e)=>{join(
-          navigate('/login')
-        )}}>회원가입</button>
+        <button className='btn btn-primary' type='button' onClick={(e)=>{join()}}>회원가입</button>
       </div>
 
       {/* 회원가입 성공 시 열리는 모달창 */}
-
       {
         isShow ? <Modal content={setModalContent} setIsShow={setIsShow}/> : null
       }

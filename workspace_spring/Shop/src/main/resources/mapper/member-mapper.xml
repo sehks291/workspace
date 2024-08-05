@@ -48,6 +48,8 @@
                 FROM shop_member
                 WHERE MEM_ID = #{memId}
             </select>
+
+
 </mapper>
 
 

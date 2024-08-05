@@ -195,5 +195,3 @@ DELETE FROM board_reply WHERE board_num = 2; -- 해당 번호 게시글의 댓�
 
 DELETE FROM board_reply WHERE board_num = 2;
 DELETE FROM board WHERE board_num = 2;
-
-1
