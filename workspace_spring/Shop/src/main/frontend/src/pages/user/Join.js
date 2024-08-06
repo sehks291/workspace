@@ -8,6 +8,9 @@ import { joinValidate } from '../../validate/joinValidate';
 
 const Join = () => {
 
+  // 중복체크 여부 저장할 변수
+  const [isCheckId, setIsCheckId] = useState(false);
+
   // daum 주소 api 팝업창을 띄우기 위한 함수 선언
   const open = useDaumPostcodePopup();
   
@@ -97,12 +100,19 @@ const Join = () => {
         return;
     }
 
+    // 아이디 중복 안했으면 회원가입 로직 막기
+    if(!isCheckId) {
+      alert('ID 중복 검사 후 가입하세요.');
+      return;
+    }
+
     // java로 가는건 앞에 api 붙여서 안 헷갈리게 하기
-    axios.post('/api_member/join', joinData)
+    axios.post('/api_member/join', joinData) // java가서 insert 쿼리 실행하는 부분
     .then((res)=>{
+      // 모달창 띄움 -> 띄워진 모달창에서 닫기 눈르면 로그인 페이지로 이동
       setIsShow(true)
       console.log(res)
-      // 로그인 페이지로 이동
+      // navigate('/loginForm');
     })
     .catch((error)=>{
       console.log(error)
@@ -118,20 +128,27 @@ const Join = () => {
       <div>회원가입을 축하합니다.</div>
     )
   }
+  
+  // 모달창을 닫으면 실행되는 함수
+  function onclickModalBtn(){
+    navigate('/loginForm')
+  }
+
 
   // 아이디 중복 확인
   const checkId = () => {
     axios.get(`/api_member/checkId/${joinData.memId}`)
     .then((res)=>{
-      console.log('성공')
-      console.log(res.data);
       const result = res.data;
       alert(result ? '이미 사용중인 ID입니다.' : '사용 가능한 아이디입니다');
+      setIsCheckId(true);
     })
     .catch((error)=>{
       console.log(error)
     })
   }
+
+  
 
   return (
     <div className='join-div'>
@@ -142,7 +159,11 @@ const Join = () => {
               <td>아이디</td>
               <td>
                 <div className='inline-input'>
-                  <input className='form-control' type='text' name='memId' onChange={(e) => { changeJoinData(e) }} />
+                  <input className='form-control' type='text' name='memId' 
+                  onChange={(e) => { 
+                    changeJoinData(e) 
+                    setIsCheckId(false)
+                    }} />
                   <button className='btn btn-primary' type='button' onClick={()=>{checkId()}}>중복확인</button>
                 </div>
                 <div className='feedback' ref={memId_valid_tag}></div>
@@ -223,7 +244,7 @@ const Join = () => {
 
       {/* 회원가입 성공 시 열리는 모달창 */}
       {
-        isShow ? <Modal content={setModalContent} setIsShow={setIsShow}/> : null
+        isShow ? <Modal content={setModalContent} setIsShow={setIsShow} clickCloseBtn={onclickModalBtn}/> : null
       }
 
     </div>

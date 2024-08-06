@@ -13,5 +13,6 @@ public interface MemberService {
     // 아이디만 비교하면 되서 매개변수는 아이디만 넘겨도 됨.
     boolean duplicationId(String memId);
 
-
+    // 로그인 기능 구현
+    MemberVO login(MemberVO memberVO);
 }

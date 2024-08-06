@@ -5,6 +5,8 @@ import com.green.Shop.member.vo.MemberVO;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Member;
+
 @RestController
 @RequestMapping("/api_member")
 public class MemberController {
@@ -19,10 +21,15 @@ public class MemberController {
     }
 
     // 아이디 중복확인 쿼리
-    @GetMapping("/checkId/{inputId}")
-    public boolean checkId(@PathVariable("inputId") String memId){
+    @GetMapping("/checkId/{memId}")
+    public boolean checkId(@PathVariable("memId") String memId){
         return memberService.duplicationId(memId);
     }
 
+    // 로그인
+    @PostMapping("/login")
+        public MemberVO login(@RequestBody MemberVO memberVO){
+        return memberService.login(memberVO);
+    }
 
 }

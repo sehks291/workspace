@@ -4,6 +4,7 @@ import com.green.Shop.member.vo.MemberVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 // 순서3
 @Service("memberService")
@@ -28,6 +29,12 @@ public class MemberServiceImpl implements MemberService{
     }
 
 
+    // 로그인 기능
+    @Override
+    public MemberVO login(@RequestBody MemberVO memberVO) {
+        // id, pw 잘못되면 null 데이터가 나옴.
+        return  sqlSession.selectOne("memberMapper.login", memberVO);
+    }
 
 
 }

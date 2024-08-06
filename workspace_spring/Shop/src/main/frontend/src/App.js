@@ -16,7 +16,7 @@ function App() {
       <div className='login-div'>
         <div>
           <ul className='header-menu'>
-            <li>Login</li>
+            <li><span onClick={(e)=>{navigate('/loginForm')}}>Login</span></li>
             <li><span onClick={(e)=>{navigate('/join')}}>Join</span></li> 
           </ul>
         </div>
@@ -41,7 +41,7 @@ function App() {
           <Route path='join' element={<Join/>}/>
 
           {/* 로그인 페이지 */}
-          <Route path='login' element={<Login/>}/>
+          <Route path='loginForm' element={<Login/> }/>
 
         </Route>
         
