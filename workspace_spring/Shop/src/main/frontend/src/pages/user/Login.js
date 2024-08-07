@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Modal from '../../common/Modal';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({setLoginInfo, loginInfo}) => {
 
   const navigate = useNavigate();
   // 로그인 버튼 클릭시 화면에 보여지는 모달창의 상태
@@ -22,7 +22,6 @@ const Login = () => {
     memId : '',
     memPw : ''
   });
-
 
 
   // 입력한 id, pw를 loginData에 저장하는 함수(입력할때마다 실행)
@@ -59,11 +58,15 @@ const Login = () => {
             memName : res.data.memName,
             memRole : res.data.memRole
           }
-
+          
           // 로그인 정보를 가진 객체를 문자열 형태로 변환
           // 객체(object)를 문자열로 변환한 데이터를 JSON 데이터라고 말함.
           // JSON.stringify -> 객체를 문자열로 바꾸는 함수
           const json_loginInfo = JSON.stringify(loginInfo);
+
+          // 로그인 정보를 저장하기 위해 만든 state 변수 loginInfo(App.js에 생성되어있음)
+          // 로그인 정보를 저장
+          setLoginInfo(loginInfo);
 
           // sessionStorage에 로그인한 회원의 id, pw, role 정보 저장
           // session에 데이터를 넣을 때 단점 : 문자 데이터만 들어감.
@@ -96,7 +99,11 @@ const Login = () => {
   function handleBtn(){
     if(isLoginSuccess){ // 로그인 성공시 확인 버튼 내용
       // 로그인 성공 시 상품 목록 페이지로 이동 
-      navigate('/')
+      if(loginInfo.memRole == 'USER'){
+        navigate('/')
+      } else {
+        navigate('/admin/regItem')
+      }
     }
   }
   

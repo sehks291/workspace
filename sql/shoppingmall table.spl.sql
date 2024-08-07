@@ -32,7 +32,7 @@ INSERT INTO item_category VALUES (2, '소설/에세이');
 INSERT INTO item_category VALUES (3, '자기개발');
 
 -- ITEM_STATUS(상품상태) : 판매중(FOR_SALE), 매진(SOLD_OUT)
-CREATE TABLE SHOT_ITEM(
+CREATE TABLE SHOP_ITEM(
 	ITEM_CODE INT AUTO_INCREMENT PRIMARY KEY
 	, ITEM_NAME VARCHAR(50) NOT NULL UNIQUE
 	, ITEM_PRICE INT NOT NULL
@@ -43,26 +43,10 @@ CREATE TABLE SHOT_ITEM(
 );
 
 SELECT * FROM shop_member;	
+SELECT * FROM Shop_item;
 
-INSERT INTO SHOP_MEMBER (MEM_ID, MEM_PW, MEM_NAME, MEM_TEL, POST, MEM_ADDR, ADDR_DETAIL, MEM_EMAIL) 
-VALUES ('TEST2', '1234', 'TEST2', '1234-5679', '12345', '울산', '북구땡땡동', 'abc123');
+UPDATE shop_member
+SET
+mem_role = 'ADMIN'
+WHERE MEM_ID = 'TEST';
 
--- 아이디 중복 확인
-SELECT MEM_ID 
-FROM shop_member
-WHERE MEM_ID = 'TEST2';
-
-
--- 비밀번호 중복 확인
-SELECT MEM_PW
-FROM shop_member
-WHERE MEM_PW = '1234';
-
-SELECT * FROM shop_member;
-
-
--- 로그인
-SELECT MEM_ID, MEM_PW, MEM_NAME, MEM_ROLE
-        FROM SHOP_MEMBER
-        WHERE MEM_ID = 'java'
-        AND MEM_PW = '1234';
