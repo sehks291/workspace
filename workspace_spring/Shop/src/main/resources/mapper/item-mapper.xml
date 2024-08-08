@@ -8,8 +8,6 @@
         <result column="CATE_NAME" property="cateName"/>
     </resultMap>
 
-
-
 </mapper>
 
 

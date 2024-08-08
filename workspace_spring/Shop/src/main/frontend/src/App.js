@@ -62,7 +62,7 @@ function App() {
             <li><span onClick={(e)=>{navigate('/join')}}>Join</span></li> 
             </ul>
             :
-            <div>
+            <div className='header-menu'>
               {loginInfo.memId}님 반갑습니다.
               <span onClick={() => {
                 // 세션에 저장된 로그인 정보 삭제

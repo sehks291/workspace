@@ -6,7 +6,7 @@
 .login-div{
   width: 100%;
   color: white;
-  background-color: #dddddd;
+  background-color: black;
 }
 
 .layout-div{
@@ -54,7 +54,8 @@
   display: flex;
   justify-content: end;
   padding-right: 100px;
-  padding: 10px 0;
+  padding: 15px 0;
+  margin-right: 40px;
 }
 
 .header-menu > li{

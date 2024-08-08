@@ -77,6 +77,7 @@ export const joinValidate = (newData, valid_tag, tagName) => {
           break;
     case 'memTel':
           const regex_memTel = /^\d{2,3}-\d{3,4}-\d{4}$/;
+
           if(regex_memTel.test(newData.memTel)){
             sendFeedbackMsg(valid_tag[4], '유효한 연락처입니다.', 'good');
             resultArr[3] = true;
